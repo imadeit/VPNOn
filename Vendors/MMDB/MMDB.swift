@@ -47,7 +47,7 @@ public struct MMDBCountry: CustomStringConvertible {
                 + $0.1 + "\""
                 + (i > 1 ? "," : "")
                 + "\n"
-            i--
+            i -= 1
         }
         s += "    }\n"
         s += "  },\n"
@@ -60,7 +60,7 @@ public struct MMDBCountry: CustomStringConvertible {
                 + $0.1 + "\""
                 + (i > 1 ? "," : "")
                 + "\n"
-            i--
+            i -= 1
         }
         s += "  }\n}"
         return s
@@ -152,7 +152,7 @@ final public class MMDB {
 
                 list = list.memory.next
                 list = dumpList(list, toS: toS)
-                size--
+                size -= 1
             }
             toS.memory += "},"
             break

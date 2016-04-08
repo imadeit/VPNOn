@@ -1,3 +1,4 @@
+
 //
 //  TodayViewController.swift
 //  TodayWidget
@@ -49,19 +50,19 @@ final class Widget:
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "coreDataDidSave:",
+            selector: #selector(Widget.coreDataDidSave(_:)),
             name: NSManagedObjectContextDidSaveNotification,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "VPNStatusDidChange:",
+            selector: #selector(Widget.VPNStatusDidChange(_:)),
             name: NEVPNStatusDidChangeNotification,
             object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "pingDidUpdate:",
+            selector: #selector(Widget.pingDidUpdate(_:)),
             name: kPingDidUpdate,
             object: nil)
     }
@@ -101,7 +102,7 @@ final class Widget:
 
         let tapGesture = UITapGestureRecognizer(
             target: self,
-            action: "didTapLeftMargin:"
+            action: #selector(Widget.didTapLeftMargin(_:))
         )
         tapGesture.numberOfTapsRequired = 1
         tapGesture.numberOfTouchesRequired = 1
@@ -113,7 +114,7 @@ final class Widget:
 
         let longGesture = UILongPressGestureRecognizer(
             target: self,
-            action: "didLongPress:"
+            action: #selector(Widget.didLongPress(_:))
         )
         longGesture.delaysTouchesBegan = true
         view.addGestureRecognizer(longGesture)
